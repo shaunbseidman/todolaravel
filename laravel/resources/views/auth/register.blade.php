@@ -64,7 +64,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                               <div class="form-check">
-                                <input name='is_admin' class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input name='is_admin' class="form-check-input" type="checkbox" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
                                   Register as an Admin
                                 </label>

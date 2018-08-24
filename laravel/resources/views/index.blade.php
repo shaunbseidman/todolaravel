@@ -56,7 +56,7 @@
       <label for="task">New Task</label>
     </div>
   </div>
-  <div class="input-field col s12">
+  <!-- <div class="input-field col s12">
     <select>
   <option value="" disabled selected>Assign to: </option>
   <option value="1">To Myself</option>
@@ -65,7 +65,7 @@
   <option value="4">Person 4</option>
 </select>
     <label>Assign Task</label>
-  </div>
+  </div> -->
   <a class="waves-effect waves-light btn">Add new task</a>
 </form>
 
