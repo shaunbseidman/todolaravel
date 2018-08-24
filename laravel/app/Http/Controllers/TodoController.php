@@ -51,8 +51,8 @@
       return redirect()->back();
     }
 
-    public function sendRequest(){
-      
+    public function sendRequest(Request $request){
+      if((int) $request->input('admin') > 0);
     }
   }
 

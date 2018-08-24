@@ -61,7 +61,7 @@
     </select>
     <label>Send Request</label>
   </div>
-  <a class="waves-effect waves-light btn">Send Request</a>
+  <button type="submit" class="waves-effect waves-light btn">Send Request</button>
   @csrf
 </form>
 @endisEmployee
