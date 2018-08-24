@@ -31,30 +31,7 @@
       <td><a title='delete' onClick='return confirm('Delete Task?')' href="{{route('delte', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     @endforeach
-    <!-- <tr>
-      <td><a href="">Do thing 2</a></td>
-      @isAdmin
-      <td>Person 2</td>
-      @endisAdmin
-      <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
-    </tr>
-    <tr>
-      <td><a href=""><strike>Do thing 3</strike></a></td>
-      @isAdmin
-      <td>Person 3</td>
-      @endisAdmin
-      <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
-    </tr>
-    <tr>
-      <td><a href="">Do thing 4</a></td>
-      @isAdmin
-      <td>Person 4</td>
-      @endisAdmin
-      <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
-    </tr> -->
+
   </tbody>
 </table>
 <ul class="pagination">
@@ -67,25 +44,16 @@
   <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 </ul>
 
-<form class="col s12">
+<form method-'POST' action='{{route('store')}}' class="col s12">
   <div class="row">
     <div class="input-field col s12">
-      <input id="task" type="text" class="validate">
+      <input name="task" id="task" type="text" class="validate">
       <label for="task">New Task</label>
     </div>
   </div>
   @include('partials.employees')
-  <!-- <div class="input-field col s12">
-    <select>
-  <option value="" disabled selected>Assign to: </option>
-  <option value="1">To Myself</option>
-  <option value="2">Person 2</option>
-  <option value="3">Person 3</option>
-  <option value="4">Person 4</option>
-</select>
-    <label>Assign Task</label>
-  </div> -->
-  <a class="waves-effect waves-light btn">Add new task</a>
+  <button type='submit' class="waves-effect waves-light btn">Add new task</button>
+  @csrf
 </form>
 
 @isEmployee
@@ -100,7 +68,7 @@
     </select>
     <label>Send Request</label>
   </div>
-  <a class="waves-effect waves-light btn">Send Request</a>
+  <button type='submit' class="waves-effect waves-light btn">Send Request</button>
 </form>
 @endisEmployee
 

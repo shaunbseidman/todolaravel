@@ -3,6 +3,8 @@
 
   use Illuminate\Http\Request;
   use App\Task;
+  use Illuminate\Support\Facade\Auth;
+
 
   class ToDoController extends Controller{
     public function index(){
