@@ -27,7 +27,17 @@
       return view('edit',['task'=>$task]);
     }
 
-    public function delete($id){
+    public function update($id, Request $request){
+      if($request->input('task')){
+        $task = Task::find($id);
+        $task->content = $request->input('task');
+        $task->save();
+      }
+      return redirect('/');
+
+     }
+
+    public function delete($id  ){
       $task = Task::find($id);
       $task->delete();
       return redirect()->back();

@@ -2,17 +2,18 @@
 @section('content')
 
 
-<form class="col s12">
+<form method="POST" action="{{route('update', ['id'=>$task->id])}}" class="col s12">
   <div class="row">
     <div class="input-field col s12">
-      <input value="Task content to edit" id="task2" type="text" class="validate">
+      <input name="task" value="{{$task->content}}" id="task2" type="text" class="validate">
       <label for="task2">Edit Item</label>
     </div>
   </div>
 
 @include('partials.employees')
 
-  <a class="waves-effect waves-light btn">Edit Item</a>
+  <button type="submit" class="waves-effect waves-light btn">Edit Item</button>
+  @csrf
 </form>
 
 @endsection
