@@ -3,7 +3,7 @@
 
   use Illuminate\Http\Request;
   use App\Task;
-  use Illuminate\Support\Facade\Auth;
+  use Illuminate\Support\Facades\Auth;
 
 
   class ToDoController extends Controller{
@@ -22,8 +22,15 @@
       return redirect()->back();
     }
 
-    public function edit(){
-      return view('edit');
+    public function edit($id){
+      $task = Task::find($id);
+      return view('edit',['task'=>$task]);
+    }
+
+    public function delete($id){
+      $task = Task::find($id);
+      $task->delete();
+      return redirect()->back();
     }
   }
 

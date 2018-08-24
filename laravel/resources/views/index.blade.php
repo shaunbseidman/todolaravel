@@ -28,7 +28,7 @@
       <td>{{$task->user->name}}</td>
       @endisAdmin
       <td><a title='edit' href="{{route('edit', $task ->id)}}"><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' onClick='return confirm('Delete Task?')' href="{{route('delte', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
+      <td><a title='delete' onClick='return confirm('Delete Task?')' href="{{route('delete', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     @endforeach
 
@@ -44,7 +44,7 @@
   <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 </ul>
 
-<form method-'POST' action='{{route('store')}}' class="col s12">
+<form method="POST" action="{{route('store')}}" class="col s12">
   <div class="row">
     <div class="input-field col s12">
       <input name="task" id="task" type="text" class="validate">
@@ -68,7 +68,7 @@
     </select>
     <label>Send Request</label>
   </div>
-  <button type='submit' class="waves-effect waves-light btn">Send Request</button>
+  <a class="waves-effect waves-light btn">Send Request</a>
 </form>
 @endisEmployee
 
