@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>Task</th>
+      @isAdmin
       <th>Assigned to:</th>
+      @endisAdmin
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -15,25 +17,33 @@
   <tbody>
     <tr>
       <td><a href="">Do thing 1</a></td>
+      @isAdmin
       <td>Shaun Seidman</td>
+      @endisAdmin
       <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
       <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     <tr>
       <td><a href="">Do thing 2</a></td>
+      @isAdmin
       <td>Person 2</td>
+      @endisAdmin
       <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
       <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     <tr>
       <td><a href=""><strike>Do thing 3</strike></a></td>
+      @isAdmin
       <td>Person 3</td>
+      @endisAdmin
       <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
       <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     <tr>
       <td><a href="">Do thing 4</a></td>
+      @isAdmin
       <td>Person 4</td>
+      @endisAdmin
       <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
       <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
@@ -56,6 +66,7 @@
       <label for="task">New Task</label>
     </div>
   </div>
+  @include('partials.employees')
   <!-- <div class="input-field col s12">
     <select>
   <option value="" disabled selected>Assign to: </option>
@@ -69,7 +80,23 @@
   <a class="waves-effect waves-light btn">Add new task</a>
 </form>
 
-<br>
+@isEmployee
+<br><br><br>
+<form class="col s12" action="">
+  <div class="input-field">
+    <select>
+      <option value="" disabled selected>Send a request to: </option>
+      <option value="2">Person 2</option>
+      <option value="3">Person 3</option>
+      <option value="4">Person 4</option>
+    </select>
+    <label>Send Request</label>
+  </div>
+</form>
+@endIsEmployee
+
+@isAdmin
+<br><br><br>
 
 <ul class="collection with-header">
   <li class="collection-header">
@@ -88,5 +115,5 @@
   </li>
 </ul>
 
-
+@endisAdmin
 @endsection
