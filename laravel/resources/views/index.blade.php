@@ -92,12 +92,12 @@
     </select>
     <label>Send Request</label>
   </div>
+  <a class="waves-effect waves-light btn">Send Request</a>
 </form>
-@endIsEmployee
+@endisEmployee
 
 @isAdmin
 <br><br><br>
-
 <ul class="collection with-header">
   <li class="collection-header">
     <h4>Coworkers</h4></li>
@@ -114,6 +114,5 @@
     <div>Person 4<a href="#!" class="secondary-content">delete</a></div>
   </li>
 </ul>
-
 @endisAdmin
 @endsection

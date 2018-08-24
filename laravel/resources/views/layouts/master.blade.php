@@ -42,7 +42,7 @@
         </div>
       </li>
     </ul>
-    @endIsAdmin
+    @endisAdmin
 
     <h1 class='center-align grey-text text-darken-5'>To-Do or Not-To-Do</h1>
 
