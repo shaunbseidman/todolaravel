@@ -4,6 +4,7 @@
   use Illuminate\Http\Request;
   use App\Task;
   use App\User;
+  use App\Invitation;
   use Illuminate\Support\Facades\Auth;
 
 
@@ -51,8 +52,16 @@
       return redirect()->back();
     }
 
-    public function sendRequest(Request $request){
-      if((int) $request->input('admin') > 0);
+    public function sendInvitation(Request $request){
+      if((int) $request->input('admin')>0
+      && !Invitation::where('worker_id'.Auth::user()->id)->where('admin_id',$request->input('admin'))->exists()
+      ){
+        $invitation = new Invitation;
+        $invitation->worker_id=Auth::user()->id;
+        $invitation->admin_id=(int) $request->input('admin');
+        $invitation->save();
+      }
+      return redirect()->back();
     }
   }
 

@@ -51,7 +51,7 @@
 
 @isEmployee
 <br><br><br>
-<form method="POST" class="col s12" action="{{route('sendRequest')}}">
+<form method="POST" class="col s12" action="{{route('sendInvitation')}}">
   <div class="input-field">
     <select name="admin">
       <option value="" disabled selected>Send a request to: </option>
