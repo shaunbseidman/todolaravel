@@ -54,10 +54,10 @@
 <form method="POST" class="col s12" action="{{route('sendRequest')}}">
   <div class="input-field">
     <select name="admin">
-      @foreach($employes as $employee)
       <option value="" disabled selected>Send a request to: </option>
+      @foreach($employees as $employee)
+      <option value="{{$employee->id}}">{{$employee->name}}</option>
       @endforeach
-      <option value="{{$coworker->id}}">{{$coworker->name}}</option>
     </select>
     <label>Send Request</label>
   </div>
