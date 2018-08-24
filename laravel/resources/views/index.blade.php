@@ -15,15 +15,23 @@
   </thead>
 
   <tbody>
+    @foreach($tasks as $task)
     <tr>
-      <td><a href="">Do thing 1</a></td>
+      <td><a href="">
+        @if(!$task->status)
+        {{$task->content}}
+        @else
+        <strike class='red.text'>{{$task->content}}</strike>
+        @endif
+      </a></td>
       @isAdmin
-      <td>Shaun Seidman</td>
+      <td>{{$task->user->name}}</td>
       @endisAdmin
-      <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
+      <td><a title='edit' href="{{route('edit', $task ->id)}}"><i class='small material-icons'>edit</i></a></td>
+      <td><a title='delete' onClick='return confirm('Delete Task?')' href="{{route('delte', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
-    <tr>
+    @endforeach
+    <!-- <tr>
       <td><a href="">Do thing 2</a></td>
       @isAdmin
       <td>Person 2</td>
@@ -46,7 +54,7 @@
       @endisAdmin
       <td><a title='edit' href=""><i class='small material-icons'>edit</i></a></td>
       <td><a title='delete' href=""><i class='small material-icons'>delete_forever</i></a></td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 <ul class="pagination">
