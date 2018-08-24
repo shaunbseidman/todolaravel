@@ -17,7 +17,7 @@
   <tbody>
     @foreach($tasks as $task)
     <tr>
-      <td><a href="">
+      <td><a href="{{route('updateStatus', $task->id)}}">
         @if(!$task->status)
         {{$task->content}}
         @else
@@ -34,15 +34,8 @@
 
   </tbody>
 </table>
-<ul class="pagination">
-  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-  <li class="active"><a href="#!">1</a></li>
-  <li class="waves-effect"><a href="#!">2</a></li>
-  <li class="waves-effect"><a href="#!">3</a></li>
-  <li class="waves-effect"><a href="#!">4</a></li>
-  <li class="waves-effect"><a href="#!">5</a></li>
-  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul>
+
+{{$tasks->links('vendor.pagination.materialize')}}
 
 <form method="POST" action="{{route('store')}}" class="col s12">
   <div class="row">
@@ -58,17 +51,18 @@
 
 @isEmployee
 <br><br><br>
-<form class="col s12" action="">
+<form method="POST" class="col s12" action="{{route('sendRequest')}}">
   <div class="input-field">
-    <select>
+    <select name="admin">
+      @foreach($employes as $employee)
       <option value="" disabled selected>Send a request to: </option>
-      <option value="2">Person 2</option>
-      <option value="3">Person 3</option>
-      <option value="4">Person 4</option>
+      @endforeach
+      <option value="{{$coworker->id}}">{{$coworker->name}}</option>
     </select>
     <label>Send Request</label>
   </div>
   <a class="waves-effect waves-light btn">Send Request</a>
+  @csrf
 </form>
 @endisEmployee
 

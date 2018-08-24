@@ -17,6 +17,8 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/update/{id}', 'ToDoController@update')->name('update');
   Route::post('/store', 'ToDoController@store')->name('store');
   Route::get('/delete/{id}', 'ToDoController@delete')->name('delete');
+  Route::get('/updateStatus/{id}', 'ToDoController@updateStatus')->name('updateStatus');
+
 });
 
 
