@@ -69,7 +69,7 @@
 <br><br><br>
 <ul class="collection with-header">
   <li class="collection-header">
-    <h4>Coworkers</h4></li>
+    <h4>Employees</h4></li>
     @foreach($employees as $employee)
     <li class="collection-item">
       <div>{{$employee->worker->name}}<a href="{{route('deleteWorker',$employee->id)}}" class="secondary-content">delete</a></div>

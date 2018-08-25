@@ -15,7 +15,7 @@
       if(Auth::user()->is_admin){
         $employees = Invitation::where('admin_id',Auth::user()->id)->where('accepted',1)->get();
         $invitations = Invitation::where('admin_id',Auth::user()->id)->where('accepted',0)->get();
-        $tasks=Task::where('user_id',Auth::user()->id)->orWhere('admin_id',Auth::user()->admin_id)->orderBy('created_at','DESC')->paginate(4);
+        $tasks=Task::where('user_id',Auth::user()->id)->orWhere('admin_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(4);
       } else {
         $invitations=[];
         $tasks=Task::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(4);
@@ -29,6 +29,17 @@
       if($request->input('task')){
         $task = new Task;
         $task->content = $request->input('task');
+        if(Auth::user()->is_admin){
+          if($request->input('assignTo')== Auth::user()->id){
+            Auth::user()->tasks()->save($task);
+          }elseif($request->input('assignTo') !=null){
+            $task->user_id=$request->input('assignTo');
+            $task->admin_id=Auth::user()->id;
+            $task->save();
+          }
+        }else{
+
+        }
         Auth::user()->tasks()->save($task);
       }
       return redirect()->back();
@@ -36,14 +47,32 @@
 
     public function edit($id){
       $task = Task::find($id);
-      return view('edit',['task'=>$task]);
+      if(Auth::user()->is_admin){
+        $employees = Invitation::where('admin_id',Auth::user()->id)->where('accepted',1)->get();
+        $invitations = Invitation::where('admin_id',Auth::user()->id)->where('accepted',0)->get();
+      }else{
+        $employees = [];
+        $invitations = [];
+      }
+      return view('edit',['task'=>$task, 'employees'=>$employees, 'invitations'=>$invitations]);
     }
 
     public function update($id, Request $request){
       if($request->input('task')){
         $task = Task::find($id);
         $task->content = $request->input('task');
-        $task->save();
+        if(Auth::user()->is_admin){
+          if($request->input('assignTo')==Auth::user()->id){
+            Auth::user()->tasks()->save($task);
+          }elseif($request->input('assignTo')!=null){
+            $task->user_id=$request->input('assignTo');
+            $task->user_id=Auth::user()->id;
+            $task=save();
+          }
+
+        }else{
+          $task->save();
+        }
       }
       return redirect('/');
      }

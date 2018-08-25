@@ -13,8 +13,6 @@
   </select>
 <label>Assign Task</label>
 </div>
-
-
 @endisAdmin
 
 <!-- <div class="input-field col s12">
