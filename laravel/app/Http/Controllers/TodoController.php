@@ -72,6 +72,18 @@
       }
       return redirect()->back();
     }
+    public function acceptInvitation($id){
+      $invitation = Invitation::find($id);
+      $invitation ->accepted = true;
+      $invitation->save();
+      return redirect()->back();
+
+    }
+    public function denyInvitation($id){
+      $invitation = Invitation::find($id);
+      $invitation = delete();
+      return redirect()->back();
+    }
   }
 
  ?>

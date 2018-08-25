@@ -1,7 +1,6 @@
 @extends('layouts.master');
 @section('content');
 
-
 <table>
   <thead>
     <tr>
