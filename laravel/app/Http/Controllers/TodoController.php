@@ -10,9 +10,18 @@
 
   class ToDoController extends Controller{
     public function index(){
-      $tasks=Task::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(4);
-      $employees = User::where('is_admin',1)->get();
-      return view('index',compact('tasks','employees'));
+
+
+      if(Auth::user()->is_admin){
+        $employees = Invitation::where('admin_id',Auth::user()->id)->where('accepted',1)->get();
+        $invitations = Invitation::where('admin_id',Auth::user()->id)->where('accepted',0)->get();
+        $tasks=Task::where('user_id',Auth::user()->id)->orWhere('admin_id',Auth::user()->admin_id)->orderBy('created_at','DESC')->paginate(4);
+      } else {
+        $invitations=[];
+        $tasks=Task::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(4);
+        $employees = User::where('is_admin',1)->get();
+      }
+      return view('index',compact('tasks','employees','invitations'));
     }
 
 
