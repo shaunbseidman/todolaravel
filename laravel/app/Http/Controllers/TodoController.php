@@ -65,10 +65,9 @@
             Auth::user()->tasks()->save($task);
           }elseif($request->input('assignTo')!=null){
             $task->user_id=$request->input('assignTo');
-            $task->user_id=Auth::user()->id;
+            $task->admin_id=Auth::user()->id;
             $task=save();
           }
-
         }else{
           $task->save();
         }
