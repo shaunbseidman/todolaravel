@@ -11,7 +11,6 @@
   class ToDoController extends Controller{
     public function index(){
 
-
       if(Auth::user()->is_admin){
         $employees = Invitation::where('admin_id',Auth::user()->id)->where('accepted',1)->get();
         $invitations = Invitation::where('admin_id',Auth::user()->id)->where('accepted',0)->get();
@@ -92,7 +91,7 @@
 
     public function sendInvitation(Request $request){
       if((int) $request->input('admin')>0
-      && !Invitation::where('worker_id'.Auth::user()->id)->where('admin_id',$request->input('admin'))->exists()
+      && !Invitation::where('worker_id',Auth::user()->id)->where('admin_id',$request->input('admin'))->exists()
       ){
         $invitation = new Invitation;
         $invitation->worker_id=Auth::user()->id;
@@ -101,6 +100,7 @@
       }
       return redirect()->back();
     }
+
     public function acceptInvitation($id){
       $invitation = Invitation::find($id);
       $invitation ->accepted = true;

@@ -7,7 +7,7 @@
     @if($employee->worker->id == $task->user->id)
     <option selected value="{{$employee->worker->id}}">{{$employee->worker->name}}</option>
     @else
-    <option value="{$employee->worker->id}}">{{$employee->worker->name}}</option>
+    <option value="{{$employee->worker->id}}">{{$employee->worker->name}}</option>
     @endif
     @endforeach
   </select>
