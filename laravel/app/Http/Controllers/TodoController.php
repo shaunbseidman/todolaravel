@@ -84,6 +84,11 @@
       $invitation = delete();
       return redirect()->back();
     }
+    public function deleteWorker($id){
+      $invitation = Invitation::find($id);
+      $invitation = delete();
+      return redirect()->back();
+    }
   }
 
  ?>

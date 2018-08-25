@@ -70,18 +70,11 @@
 <ul class="collection with-header">
   <li class="collection-header">
     <h4>Coworkers</h4></li>
-  <li class="collection-item">
-    <div>Shaun Seidman<a href="#!" class="secondary-content">delete</a></div>
-  </li>
-  <li class="collection-item">
-    <div>Person 2<a href="#!" class="secondary-content">delete</a></div>
-  </li>
-  <li class="collection-item">
-    <div>Person 3<a href="#!" class="secondary-content">delete</a></div>
-  </li>
-  <li class="collection-item">
-    <div>Person 4<a href="#!" class="secondary-content">delete</a></div>
-  </li>
+    @foreach($employees as $employee)
+    <li class="collection-item">
+      <div>{{$employee->worker->name}}<a href="{{route('deleteWorker',$employee->id)}}" class="secondary-content">delete</a></div>
+    </li>
+    @endforeach
 </ul>
 @endisAdmin
 @endsection
