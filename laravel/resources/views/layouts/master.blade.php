@@ -30,7 +30,7 @@
         <div class="collapsible-body">
           @foreach($invitations as $invitation)
           <p>
-            <span class="green-text"><b>{{$invitation->worker->name}}</b></span><a href="{{route('acceptInvitation',['id'=>$invitation->id])}}">accept</a> or <a href="{{route('denyInvitation')}}">deny</a>
+            <span class="green-text"><b>{{$invitation->worker->name}}</b></span><a href="{{route('acceptInvitation',['id'=>$invitation->id])}}">accept</a> or <a href="{{route('denyInvitation',['id'=>$invitation->id])}}">deny</a>
           </p>
           @endforeach
         </div>
