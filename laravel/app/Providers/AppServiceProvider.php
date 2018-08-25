@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
         else
         return false;
       });
-      Blade::if('isEmployee', function(){
+      Blade::if('isWorker', function(){
         if(Auth::check())
         return Auth::user()-> is_admin === 0 ? true : false;
         else

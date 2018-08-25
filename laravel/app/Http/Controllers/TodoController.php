@@ -10,7 +10,7 @@
 
   class ToDoController extends Controller{
     public function index(){
-
+      $tasks=Task::all();
       if(Auth::user()->is_admin){
         $employees = Invitation::where('admin_id',Auth::user()->id)->where('accepted',1)->get();
         $invitations = Invitation::where('admin_id',Auth::user()->id)->where('accepted',0)->get();
@@ -90,7 +90,7 @@
     }
 
     public function sendInvitation(Request $request){
-      if((int) $request->input('admin')>0
+      if((int) $request->input('admin') > 0
       && !Invitation::where('worker_id',Auth::user()->id)->where('admin_id',$request->input('admin'))->exists()
       ){
         $invitation = new Invitation;

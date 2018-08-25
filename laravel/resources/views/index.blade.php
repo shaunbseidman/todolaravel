@@ -20,17 +20,16 @@
         @if(!$task->status)
         {{$task->content}}
         @else
-        <strike class='red.text'>{{$task->content}}</strike>
+        <strike class='grey-text'>{{$task->content}}</strike>
         @endif
       </a></td>
       @isAdmin
       <td>{{$task->user->name}}</td>
       @endisAdmin
       <td><a title='edit' href="{{route('edit', $task ->id)}}"><i class='small material-icons'>edit</i></a></td>
-      <td><a title='delete' onClick='return confirm('Delete Task?')' href="{{route('delete', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
+      <td><a title='delete' onClick="return confirm('Delete Task?')" href="{{route('delete', $task ->id)}}"><i class='small material-icons'>delete_forever</i></a></td>
     </tr>
     @endforeach
-
   </tbody>
 </table>
 
@@ -48,7 +47,7 @@
   @csrf
 </form>
 
-@isEmployee
+@isWorker
 <br><br><br>
 <form method="POST" class="col s12" action="{{route('sendInvitation')}}">
   <div class="input-field">
@@ -63,7 +62,7 @@
   <button type="submit" class="waves-effect waves-light btn">Send Request</button>
   @csrf
 </form>
-@endisEmployee
+@endisWorker
 
 @isAdmin
 <br><br><br>

@@ -6,7 +6,7 @@
   <div class="row">
     <div class="input-field col s12">
       <input name="task" value="{{$task->content}}" id="task2" type="text" class="validate">
-      <label for="task2">Edit Item</label>
+      <label for="task">Edit Item</label>
     </div>
   </div>
 

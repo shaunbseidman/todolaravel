@@ -15,10 +15,10 @@ class CreateInvitationsTable extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('admin_id');
-            $table->integer('worker_id');
-            $table->boolean('accepted')->default(false);
             $table->timestamps();
+            $table->integer('worker_id');
+            $table->integer('admin_id');
+            $table->boolean('accepted')->default(false);
         });
     }
 
