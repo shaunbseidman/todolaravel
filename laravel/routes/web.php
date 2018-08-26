@@ -24,6 +24,4 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/deleteWorker/{id}', 'ToDoController@deleteWorker')->name('deleteWorker');
 });
 
-
-
 Auth::routes();
