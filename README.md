@@ -1,5 +1,7 @@
 # To Do or Not To Do
 
+![alt text](https://i.imgur.com/eypWge7.png)
+
 A fully functional CRUD app created with Laravel and MySql. Having no experience working in PHP before, this three day project was quite the challenge.
 You are able to create both an Admin and Guest account. From the Guest portal you are able to assign/edit/and mark tasks as done to yourself as well as send an invite to be added to the admin's team. 
 As the Admin, you are able to create/edit/delete tasks assigned to yourself or guests in your employee portal.
