@@ -37,9 +37,9 @@
             $task->save();
           }
         }else{
+          Auth::user()->tasks()->save($task);
 
         }
-        Auth::user()->tasks()->save($task);
       }
       return redirect()->back();
     }

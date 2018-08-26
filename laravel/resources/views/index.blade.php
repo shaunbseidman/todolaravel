@@ -1,5 +1,5 @@
-@extends('layouts.master');
-@section('content');
+@extends('layouts.master')
+@section('content')
 
 <table>
   <thead>
